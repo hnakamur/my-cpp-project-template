@@ -1,3 +1,2 @@
 build/
-etc/s3_auth_v4.config
-etc/obj_store_auth.yaml
+debug-build/
