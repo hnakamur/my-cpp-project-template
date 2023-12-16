@@ -5,28 +5,27 @@ install: test
 	sudo cmake --build build --config Release --target install -v
 
 test: build
-	cmake --build build --target test
+	cmake --build build --config Release --target test -v
 
-build:
-	if [ ! -d build ]; then \
-	CXX=$(CXX) cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCLANG_FORMAT=$(CLANG_FORMAT); \
-	fi
-	cmake --build build -v
+build: setup
+	cmake --build build --config Release -v
 
 debug-test: debug-build
-	cmake --build debug-build --target test
+	cmake --build build --config Debug --target test -v
 
-debug-build:
-	if [ ! -d debug-build ]; then \
-	CXX=$(CXX) cmake -B debug-build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCLANG_FORMAT=$(CLANG_FORMAT); \
+debug-build: setup
+	cmake --build build --config Debug -v
+
+setup:
+	if [ ! -d build ]; then \
+	CXX=$(CXX) cmake -B build -G "Ninja Multi-Config" -DCLANG_FORMAT=$(CLANG_FORMAT); \
 	fi
-	cmake --build debug-build -v
 
 cmake-format:
 	find . -path ./build -prune -false -o \( -name CMakeLists.txt -o -name '*.cmake' \) \
 	| xargs --verbose cmake-format -i
 
 clean:
-	@rm -rf build debug-build
+	@rm -rf build
 
-.PHONY: install build debug-build test cmake-format clean
+.PHONY: install build debug-build setup test cmake-format clean

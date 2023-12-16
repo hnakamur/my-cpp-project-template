@@ -12,7 +12,6 @@ fetchcontent_makeavailable(googletest)
 
 set(TEST_FILENAMES sample1_unittest.cc)
 list(TRANSFORM TEST_FILENAMES PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/ OUTPUT_VARIABLE TEST_FILES)
-message(STATUS TEST_FILES=${TEST_FILES})
 
 add_executable(sample1_unittest ${TEST_FILES})
 target_link_libraries(sample1_unittest PRIVATE sample1 GTest::gtest_main)
