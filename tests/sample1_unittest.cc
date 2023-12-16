@@ -44,7 +44,8 @@
 #include <limits.h>
 
 #include "gtest/gtest.h"
-namespace {
+namespace
+{
 
 // Step 2. Use the TEST macro to define your tests.
 //
@@ -73,7 +74,8 @@ namespace {
 // Tests Factorial().
 
 // Tests factorial of negative numbers.
-TEST(FactorialTest, Negative) {
+TEST(FactorialTest, Negative)
+{
   // This test is named "Negative", and belongs to the "FactorialTest"
   // test case.
   EXPECT_EQ(1, Factorial(-5));
@@ -97,10 +99,14 @@ TEST(FactorialTest, Negative) {
 }
 
 // Tests factorial of 0.
-TEST(FactorialTest, Zero) { EXPECT_EQ(1, Factorial(0)); }
+TEST(FactorialTest, Zero)
+{
+  EXPECT_EQ(1, Factorial(0));
+}
 
 // Tests factorial of positive numbers.
-TEST(FactorialTest, Positive) {
+TEST(FactorialTest, Positive)
+{
   EXPECT_EQ(1, Factorial(1));
   EXPECT_EQ(2, Factorial(2));
   EXPECT_EQ(6, Factorial(3));
@@ -110,7 +116,8 @@ TEST(FactorialTest, Positive) {
 // Tests IsPrime()
 
 // Tests negative input.
-TEST(IsPrimeTest, Negative) {
+TEST(IsPrimeTest, Negative)
+{
   // This test belongs to the IsPrimeTest test case.
 
   EXPECT_FALSE(IsPrime(-1));
@@ -119,7 +126,8 @@ TEST(IsPrimeTest, Negative) {
 }
 
 // Tests some trivial cases.
-TEST(IsPrimeTest, Trivial) {
+TEST(IsPrimeTest, Trivial)
+{
   EXPECT_FALSE(IsPrime(0));
   EXPECT_FALSE(IsPrime(1));
   EXPECT_TRUE(IsPrime(2));
@@ -127,13 +135,14 @@ TEST(IsPrimeTest, Trivial) {
 }
 
 // Tests positive input.
-TEST(IsPrimeTest, Positive) {
+TEST(IsPrimeTest, Positive)
+{
   EXPECT_FALSE(IsPrime(4));
   EXPECT_TRUE(IsPrime(5));
   EXPECT_FALSE(IsPrime(6));
   EXPECT_TRUE(IsPrime(23));
 }
-}  // namespace
+} // namespace
 
 // Step 3. Call RUN_ALL_TESTS() in main().
 //
