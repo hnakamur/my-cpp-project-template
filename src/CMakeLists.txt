@@ -6,4 +6,4 @@ target_include_directories(sample1 PUBLIC .)
 install(TARGETS sample1)
 
 include(clang_format)
-add_clang_format_target(sample1 ${SRC_FILES})
+add_clang_format_target(clang_format_src ${SRC_FILES})

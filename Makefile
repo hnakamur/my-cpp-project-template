@@ -16,15 +16,15 @@ debug_build: setup
 debug_test: debug_build
 	cmake --build build --config Debug --target test -v
 
+format: setup
+	cmake --build build --config Release --target format -v
+
 setup:
 	if [ ! -d build ]; then \
 	CXX=$(CXX) cmake -B build -G "Ninja Multi-Config" -DCLANG_FORMAT=$(CLANG_FORMAT); \
 	fi
 
-cmake_format:
-	cmake --build build --config Release --target cmake_format -v
-
 clean:
 	@rm -rf build
 
-.PHONY: install build debug_build setup test clean
+.PHONY: build test install debug_build debug_test format setup clean

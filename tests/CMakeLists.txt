@@ -19,4 +19,4 @@ include(GoogleTest)
 gtest_discover_tests(sample1_unittest)
 
 include(clang_format)
-add_clang_format_target(sample1_unittest ${TEST_FILES})
+add_clang_format_target(clang_format_tests ${TEST_FILES})

@@ -5,9 +5,8 @@ set(CLANG_FORMAT
 
 function(add_clang_format_target target files)
   find_program(CLANG_FORMAT_PATH ${CLANG_FORMAT} REQUIRED)
-  add_custom_command(
-    TARGET ${target}
-    PRE_BUILD
+  add_custom_target(
+    ${target}
     COMMAND ${CLANG_FORMAT_PATH} -i ${files}
     COMMENT "Checking clang-format for ${target}"
     VERBATIM
