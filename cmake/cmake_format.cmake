@@ -6,7 +6,7 @@ set(CMAKE_FORMAT
 function(add_cmake_format_target target)
   find_program(CMAKE_FORMAT_PATH ${CMAKE_FORMAT} REQUIRED)
   add_custom_target(
-    ${target} ALL
+    ${target}
     COMMAND ${CMAKE_FORMAT_PATH} -i ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt
     VERBATIM
   )
@@ -22,7 +22,7 @@ function(add_cmake_format_target_recurse target directory)
     ${patterns}
   )
   add_custom_target(
-    ${target} ALL
+    ${target}
     COMMAND ${CMAKE_FORMAT_PATH} -i ${files}
     VERBATIM
   )

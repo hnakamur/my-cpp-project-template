@@ -23,3 +23,6 @@ add_cmake_format_target(cmake_format_toplevel)
 add_cmake_format_target_recurse(cmake_format_cmake_dir ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 add_cmake_format_target_recurse(cmake_format_src_dir ${CMAKE_CURRENT_SOURCE_DIR}/src)
 add_cmake_format_target_recurse(cmake_format_tests_dir ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+add_custom_target(
+  cmake_format ALL DEPENDS cmake_format_toplevel cmake_format_cmake_dir cmake_format_src_dir cmake_format_tests_dir
+)

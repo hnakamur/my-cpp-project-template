@@ -10,10 +10,10 @@ test: build
 install: test
 	sudo cmake --build build --config Release --target install -v
 
-debug-build: setup
+debug_build: setup
 	cmake --build build --config Debug -v
 
-debug-test: debug-build
+debug_test: debug_build
 	cmake --build build --config Debug --target test -v
 
 setup:
@@ -21,7 +21,10 @@ setup:
 	CXX=$(CXX) cmake -B build -G "Ninja Multi-Config" -DCLANG_FORMAT=$(CLANG_FORMAT); \
 	fi
 
+cmake_format:
+	cmake --build build --config Release --target cmake_format -v
+
 clean:
 	@rm -rf build
 
-.PHONY: install build debug-build setup test clean
+.PHONY: install build debug_build setup test clean
