@@ -17,6 +17,3 @@ add_executable(sample1_unittest ${TEST_FILES})
 target_link_libraries(sample1_unittest PRIVATE sample1 GTest::gtest_main)
 include(GoogleTest)
 gtest_discover_tests(sample1_unittest)
-
-include(clang_format)
-add_clang_format_target(clang_format_tests ${TEST_FILES})
