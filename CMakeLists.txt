@@ -10,9 +10,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-include(hardening)
-add_compile_options(-flto -Wunused-parameter)
-add_link_options(-flto)
+include(google_test)
+include(google_benchmark)
 
 enable_testing()
 add_subdirectory(src)

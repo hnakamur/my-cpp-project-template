@@ -1,11 +1,14 @@
-CXX = clang++-16
-CLANG_FORMAT = clang-format-16
+CXX = clang++
+CLANG_FORMAT = clang-format
 
 build: setup
 	cmake --build build --config Release -v
 
 test: build
 	cmake --build build --config Release --target test -v
+
+bench: build
+	cmake --build build --config Release --target bench -v
 
 install: test
 	sudo cmake --build build --config Release --target install -v
@@ -27,4 +30,4 @@ setup:
 clean:
 	@rm -rf build
 
-.PHONY: build test install debug_build debug_test format setup clean
+.PHONY: build test bench install debug_build debug_test format setup clean
